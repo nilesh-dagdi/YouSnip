@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "axios": "^1.8.4",
+    "cheerio": "^1.0.0",
+    "child_process": "^1.0.2",
+    "ejs": "^3.1.10",
+    "ejs-layouts": "^0.0.1",
+    "ejs-mate": "^4.0.0",
+    "express": "^5.1.0",
+    "langdetect": "^0.2.1",
+    "method-override": "^3.0.0",
+    "path": "^0.12.7",
+    "puppeteer": "^24.6.0",
+    "youtube-transcript": "^1.2.1",
+    "youtube-transcript-api": "^1.1.2"
+  }
+}

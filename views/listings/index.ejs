@@ -1,0 +1,198 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<% layout("/layouts/boilerplate") %>
+
+<style>
+    body {
+        background-color: black;
+    }
+
+    .abcd.active {
+        color: orange !important;
+    }
+
+    .custom-margin {
+        margin-top: 10rem;
+    }
+
+    .text-center {
+        font-size: 3rem;
+        color: white;
+    }
+
+    .hlo {
+        display: block;
+        height: 4rem;
+        max-width: 800px;
+        width: 100%;
+        font-size: 1.5rem;
+        padding: 10px;
+        text-align: center;
+        background-color: yellow;
+        color: black;
+        border: 2px solid yellow;
+        box-shadow: 0px 0px 15px rgba(255, 255, 0, 0.8);
+        border-radius: 10px;
+    }
+
+    .input-group {
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        max-width: 600px;
+        margin: auto;
+        height: 2.5rem;
+    }
+
+    .btn-primary {
+        background-color: black;
+        color: yellow;
+        border-color: yellow;
+    }
+
+    .btn-primary:hover {
+        background-color: white;
+        color: black;
+        border-color: black;
+        transform: scale(1.05);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hlo:hover {
+        background-color: white;
+        color: black;
+        transition: 0.3s;
+    }
+
+    .text-white {
+        margin-top: 14rem !important;
+    }
+
+    footer a {
+        text-decoration: none;
+    }
+
+    footer a i {
+        color: inherit;
+    }
+
+    .fab.fa-facebook {
+        color: #1877F2;
+    }
+
+    .fab.fa-twitter {
+        color: #1DA1F2;
+    }
+
+    .fab.fa-instagram {
+        color: #E4405F;
+    }
+
+    /* Styling for Language Dropdown */
+    .language-select {
+        width: 100%;
+        max-width: 500px;
+        height: 3rem;
+        font-size: 1.2rem;
+        text-align: center;
+        background-color: yellow;
+        color: black;
+        border: 2px solid yellow;
+        box-shadow: 0px 0px 15px rgba(255, 255, 0, 0.8);
+        border-radius: 10px;
+        padding: 5px;
+        margin-top: 10px;
+    }
+
+    .language-select:hover {
+        background-color: white;
+        color: black;
+        transition: 0.3s;
+    }
+    #loading-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.spinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid yellow;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+</style>
+
+
+<!-- LOADING OVERLAY -->
+<div id="loading-overlay">
+    <div class="spinner"></div>
+    <p style="margin-top: 10px;">⏳ Summarizing... Please wait...</p>
+  </div>
+  
+<form action="/getTranscript" method="POST">
+    <div class="container custom-margin">
+        <h2 class="text-center">Summarize Your YouTube Video</h2>
+
+        <!-- YouTube URL Input -->
+        <div class="input-group mt-4">
+            <span class="input-group-text" style="background-color: yellow; border-color: yellow; padding: 12px;">
+                <i class="fa fa-play" style="color: black; font-size: 1.8rem;"></i>
+            </span>
+            <input type="text" class="form-control hlo" placeholder="Paste YouTube video link here..." name="url" aria-label="YouTube URL" required>
+        </div>
+
+        <!-- Language Selection (Centered and smaller width) -->
+        <div class="input-group mt-3">
+            <select name="summaryLang" class="language-select" required>
+                <option value="english">English</option>
+                <option value="hinglish">Hinglish</option>
+            </select>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="btn-container mt-3">
+            <button class="btn btn-primary"><b>Summarize</b></button>
+        </div>
+
+    </div>
+</form>
+
+<!-- Footer -->
+<footer class="text-center text-white" style="background-color: black; padding: 8px; font-size: 1.2rem; line-height: 1.2;">
+    <p style="margin-bottom: 2px;">© 2025 YouTube Summarizer | All Rights Reserved</p>
+    <p style="margin-bottom: 2px;">Follow us: 
+        <a href="#" class="mx-1"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="mx-1"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/nilesh__dagdi/" class="mx-1"><i class="fab fa-instagram"></i></a>
+    </p>
+</footer>
+
+<script>
+    document.querySelector("form").addEventListener("submit", function () {
+      document.getElementById("loading-overlay").style.display = "flex";
+    });
+  </script>
+  

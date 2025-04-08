@@ -1,0 +1,19 @@
+<h2>Transcript Result</h2>
+<h3>Detected Language: 
+    <% if (detectedLanguage === 'hi') { %>
+        Hindi (converted to Hinglish)
+    <% } else if (detectedLanguage === 'en') { %>
+        English
+    <% } else { %>
+        <%= detectedLanguage %>
+    <% } %>
+</h3>
+<div style="max-width: 800px; margin: auto; padding: 20px; background-color: #111; color: white; border-radius: 10px;">
+    <h2 class="text-center mb-4">Transcript</h2>
+    <ul style="list-style: none; padding-left: 0;">
+        <% transcript.forEach(item => { %>
+            <li style="margin-bottom: 10px;">- <%= item.text %></li>
+        <% }); %>
+    </ul>
+</div>
+

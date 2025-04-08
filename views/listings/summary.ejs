@@ -1,0 +1,68 @@
+<% layout("/layouts/boilerplate") %>
+
+<style>
+  body{
+    background-color: #000;
+  }
+  .text-center {
+    font-size: 3rem;
+    color: white;
+  }
+
+  .text-white {
+    margin-top: 18rem !important;
+  }
+
+  footer a {
+    text-decoration: none;
+  }
+
+  footer a i {
+    color: inherit;
+  }
+
+  .fab.fa-facebook {
+    color: #1877F2;
+  }
+
+  .fab.fa-twitter {
+    color: #1DA1F2;
+  }
+
+  .fab.fa-instagram {
+    color: #E4405F;
+  }
+</style>
+
+<!-- Main Section with Black Background -->
+<div style="background-color: #000; min-height: 100vh; padding-top: 30px; padding-bottom: 30px;">
+  <div class="container mt-5 pt-5">
+    <div class="card shadow p-5 mx-auto" style="max-width: 1000px; border-radius: 15px; background-color: #fff;">
+      <h2 class="mb-4 text-center fw-bold" style="color: #000;">📄 Summarized Notes</h2>
+      <div style="white-space: pre-wrap; font-size: 1.05rem; line-height: 1.7; color: #000;">
+        <div><%- summary %></div>
+      </div>
+      <div class="mt-4 text-end">
+      </div>
+    </div>
+  </div>
+</div>
+<form action="/download-pdf" method="POST">
+  <input type="hidden" name="summaryContent" value="<%= encodeURIComponent(summary) %>">
+  <div class="d-flex justify-content-center mt-4">
+    <button type="submit" class="btn btn-success">Download as PDF</button>
+  </div>
+</form>
+
+
+
+
+<!-- Footer -->
+<footer class="text-center text-white" style="background-color: black; padding: 8px; font-size: 1.2rem; line-height: 1.2;">
+  <p style="margin-bottom: 2px;">© 2025 YouTube Summarizer | All Rights Reserved</p>
+  <p style="margin-bottom: 2px;">Follow us: 
+      <a href="#" class="mx-1"><i class="fab fa-facebook"></i></a>
+      <a href="#" class="mx-1"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/nilesh__dagdi/" class="mx-1"><i class="fab fa-instagram"></i></a>
+  </p>
+</footer>
