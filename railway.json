@@ -1,0 +1,21 @@
+{
+    "build": {
+      "builder": "NIXPACKS"
+    },
+    "nixpacks": {
+      "phases": {
+        "install": {
+          "cmds": [
+            "pip install -r requirements.txt",
+            "npm install"
+          ]
+        },
+        "start": {
+          "cmds": [
+            "node app.js"
+          ]
+        }
+      }
+    }
+  }
+  
